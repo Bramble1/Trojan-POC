@@ -14,6 +14,4 @@
 
 # References
 
-Thanks to pico, his github profile: https://github.com/0x00pf
-
 And the Learning Linux binary analysis book by Ryan O'Neill
