@@ -1,4 +1,4 @@
-# Virus-infector
+# Virus-infector (first quick prototype version)
 
 ./compile
 
