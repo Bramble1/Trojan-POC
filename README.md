@@ -15,3 +15,5 @@
 # References
 
 And the Learning Linux binary analysis book by Ryan O'Neill
+
+And pico, who i follow on github.
