@@ -1,5 +1,7 @@
 # Virus-infector (v.1)
 
+Simple proof of concept. Will return back to this project later...
+
 ./compile
 
 ./infect <target_file>
