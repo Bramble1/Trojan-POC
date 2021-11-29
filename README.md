@@ -1,6 +1,6 @@
 # Virus-infector (v.1)
 
-Simple proof of concept. Will return back to this project later...
+Simple proof of concept. Will return back to this project later... It is not meant to be anything useful.
 
 ./compile
 
