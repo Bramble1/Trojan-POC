@@ -18,11 +18,11 @@ _start:
 	push r11
 
 	
-	jmp	malware
-	message:	db	"*this is the payload speaking*", 0xa
+	jmp	payload
+	message:	db	"this is the payload speaking", 0xa
 
 
-malware: ;parasite function
+payload: ;parasite function
 
 
 	xor	rax, rax					
@@ -45,6 +45,4 @@ malware: ;parasite function
 
 	
 	; jmp to host entry point(will be changed)
-	mov	rbx, 0xAAAAAAAAAAAAAAAA		
-	jmp	rbx
-
+	jmp 0x1000	

