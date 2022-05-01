@@ -1,21 +1,15 @@
-# Virus-infector (v.1)
+# Virus-infector (v.2)
 
-Simple proof of concept. Will return back to this project later... It is not meant to be anything useful.
+Simple proof of concept.
 
 ./compile
 
 ./infect <target_file>
 
+# Updates
 
-# To do
-      1. Add functionality to infect Shared Dyn object files
-      2. Make a self replicating payload small enough to fit in biggest code cave
-      3. Ability to split the payload into smaller code caves all over the file
-
-
+1. Can now infect PIE (position independant executables) [+]
 
 # References
+Learning Linux binary analysis book by Ryan O'Neill
 
-And the Learning Linux binary analysis book by Ryan O'Neill
-
-And pico, who i follow on github.
