@@ -26,7 +26,7 @@ payload: ;parasite function
 
 
 	xor	rax, rax					
-	add	rax, 0x1
+	inc	rax
 	mov rdi, rax					
 	lea rsi, [rel message]			
 								
